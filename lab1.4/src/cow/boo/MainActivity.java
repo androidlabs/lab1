@@ -1,4 +1,4 @@
-package com.vxcompany.radrace10;
+package cow.boo;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -71,6 +71,7 @@ public class MainActivity extends Activity implements OnTouchListener {
         editor.commit();
     }
 
+    @Override
     public boolean onTouch(View v, MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             this.xCoordinates[0] = (int) event.getX();
