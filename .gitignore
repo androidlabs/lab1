@@ -40,4 +40,12 @@ Thumbs.db
 
 # IntelliJ #
 ############
-.iml
+*.iml
+.idea
+
+# Android #
+###########
+assets
+bin
+gen
+out
