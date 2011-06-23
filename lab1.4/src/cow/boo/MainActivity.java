@@ -75,6 +75,8 @@ public class MainActivity extends Activity implements OnTouchListener {
     public boolean onTouch(View v, MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             this.xCoordinates[0] = (int) event.getX();
+            // Indicate we have handled the onTouch event
+            return true;
         } else if (event.getAction() == MotionEvent.ACTION_UP) {
             this.xCoordinates[1] = (int) event.getX();
             if (xCoordinates[1] - xCoordinates[0] > MIN_SWIPE_WIDTH) {
