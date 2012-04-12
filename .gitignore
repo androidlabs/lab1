@@ -37,6 +37,7 @@ Thumbs.db
 ###########
 .classpath
 .project
+.settings
 
 # IntelliJ #
 ############
