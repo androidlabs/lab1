@@ -22,7 +22,7 @@ public class SplashActivity extends Activity implements AnimationListener {
     }
 
 	@Override
-	public void onAnimationEnd(Animation arg0) {
+    public void onAnimationEnd(Animation arg0) {
         this.startActivity(new Intent(this, MainActivity.class));
         this.finish();
 	}

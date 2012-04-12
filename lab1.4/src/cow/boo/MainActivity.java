@@ -54,8 +54,6 @@ public class MainActivity extends Activity implements OnTouchListener {
 
         preferences = getPreferences(MODE_PRIVATE);
 
-        setStartingPosition();
-
         ImageSwitcher imageSwitcher = (ImageSwitcher) findViewById(R.id.image_switcher);
         imageSwitcher.setFactory(new MyImageSwitcherFactory());
         imageSwitcher.setOnTouchListener(this);
@@ -63,12 +61,6 @@ public class MainActivity extends Activity implements OnTouchListener {
         displayCurrentImage();
         playCurrentSound();
 
-    }
-
-    private void setStartingPosition() {
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt(CURRENT_POSITION, STARTING_POSITION);
-        editor.commit();
     }
 
     @Override
@@ -143,7 +135,7 @@ public class MainActivity extends Activity implements OnTouchListener {
     }
 
     private int getCurrentPosition() {
-        return preferences.getInt(CURRENT_POSITION, 0);
+        return preferences.getInt(CURRENT_POSITION, STARTING_POSITION);
     }
 
     private void displayCurrentImage() {
@@ -162,8 +154,8 @@ public class MainActivity extends Activity implements OnTouchListener {
         public View makeView() {
             ImageView imageView = new ImageView(MainActivity.this);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView
-                    .setLayoutParams(new ImageSwitcher.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+            imageView.setLayoutParams(new ImageSwitcher.LayoutParams(LayoutParams.MATCH_PARENT,
+                    LayoutParams.MATCH_PARENT));
             return imageView;
         }
     }

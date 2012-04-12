@@ -14,26 +14,26 @@ public class SplashActivity extends Activity implements AnimationListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
-        
+
         Animation customAnimation = AnimationUtils.loadAnimation(this, R.anim.custom_anim);
         ImageView splashIcon = (ImageView) findViewById(R.id.splash_icon);
         splashIcon.startAnimation(customAnimation);
         customAnimation.setAnimationListener(this);
     }
 
-	@Override
-	public void onAnimationEnd(Animation arg0) {
+    @Override
+    public void onAnimationEnd(Animation arg0) {
         this.startActivity(new Intent(this, MainActivity.class));
         this.finish();
-	}
+    }
 
-	@Override
-	public void onAnimationRepeat(Animation arg0) {
-		// TODO Auto-generated method stub
-	}
+    @Override
+    public void onAnimationRepeat(Animation arg0) {
+        // TODO Auto-generated method stub
+    }
 
-	@Override
-	public void onAnimationStart(Animation arg0) {
-		// TODO Auto-generated method stub
-	}
+    @Override
+    public void onAnimationStart(Animation arg0) {
+        // TODO Auto-generated method stub
+    }
 }
