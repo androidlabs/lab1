@@ -8,7 +8,7 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 
 public class ImageAdapter extends BaseAdapter {
-    int mGalleryItemBackground;
+
     private Context mContext;
 
     private static int[] pictureIds = { R.drawable.bear, R.drawable.cat, R.drawable.chicken, R.drawable.chimpansee,

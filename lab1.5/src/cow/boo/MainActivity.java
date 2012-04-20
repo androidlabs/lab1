@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Gallery;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnItemClickListener {
 
     private MediaPlayer mp;
     
@@ -26,27 +26,24 @@ public class MainActivity extends Activity {
 
         Gallery gallery = (Gallery) findViewById(R.id.gallery);
         gallery.setAdapter(new ImageAdapter(this));
-        gallery.setOnItemClickListener(new OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                playSound(position);
-            }
-        });
+        gallery.setOnItemClickListener(this);
     }
 
-    private void playSound(int position) {
-        if (mp != null) {
-            mp.release();
-        }
-        mp = MediaPlayer.create(this, soundIds[position]);
-        mp.start();
-    }
-    
     @Override
     protected void onPause() {
         super.onPause();
         if (mp != null) {
             mp.release();
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (mp != null) {
+            mp.release();
+        }
+        mp = MediaPlayer.create(this, soundIds[position]);
+        mp.start();
     }
 
 }
